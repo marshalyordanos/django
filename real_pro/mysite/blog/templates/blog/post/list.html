@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+{% comment %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/blog_list.css' %}"> {% endcomment %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+
+   <div class="blog_list__container">
+    <h1 class="title">My Blog</h1>
+    {% for post in posts %}
+    <div class="blog__lists">
+        <h2>
+            {% comment %} <a href="{% url 'blog:post_detail' post.id %}"> {% endcomment %}
+            <a href="{{post.get_absolute_url }}">
+        
+                {{ post.title }}
+            </a>
+            </h2>
+            <p class="date">
+                Published {{ post.publish }} by {{ post.author }}
+            </p>
+    
+    {{ post.body|truncatewords:30|linebreaks }}
+    
+
+</div>
+    {% endfor %}
+   </div>
+
+    {% include "pagination.html" with page=page_obj %}
+{% endblock %}

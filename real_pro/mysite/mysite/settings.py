@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sass_processor',
+    
     
     'blog.apps.BlogConfig',
 ]
@@ -133,6 +133,18 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+
+
+# send emal
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'marshalyordanos32@gmail.com'
+EMAIL_HOST_PASSWORD = 'qwertyuiopasdf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# write the email to the console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # # Specify the location of your SCSS files
